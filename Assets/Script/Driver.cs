@@ -9,9 +9,14 @@ public class Driver : MonoBehaviour
    [SerializeField] float moveSpeed = 20f;
    [SerializeField] float slowSpeed = 10f;
    [SerializeField] float fastSpeed = 30f;
+    Camera MCamera;
 
-  
+    
 
+     void Start()
+    {
+        MCamera = Camera.main;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -36,4 +41,13 @@ public class Driver : MonoBehaviour
         moveSpeed = slowSpeed;
         Debug.Log("slowed");
     }
+
+    private void LateUpdate()
+    {
+        MCamera.transform.position = transform.position + new Vector3(0, 0, -10);
+    }
+
+
+
+
 }

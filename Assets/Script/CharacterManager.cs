@@ -19,7 +19,9 @@ public class CharacterManager : MonoBehaviour
 
     void Start()
     {
+        Characterpredb.CharacterCountpred = 0;
         spawnedCharacter = Instantiate (Characterpredb.CharacterPrefabsList[Characterpredb.CharacterCountpred]);
+        UpdateCharacter(selectedOption);
     }
   
 
@@ -32,6 +34,19 @@ public class CharacterManager : MonoBehaviour
         }
         UpdateCharacter(selectedOption);
 
+        if (Characterpredb.CharacterCountpred == Characterpredb.CharacterPrefabsList.Count - 1)
+        {
+            Characterpredb.CharacterCountpred = 0;
+            Destroy(spawnedCharacter);
+            spawnedCharacter = Instantiate(Characterpredb.CharacterPrefabsList[Characterpredb.CharacterCountpred]);
+        }
+        else
+        {
+            Characterpredb.CharacterCountpred += 1;
+            Destroy(spawnedCharacter);
+            spawnedCharacter = Instantiate(Characterpredb.CharacterPrefabsList[Characterpredb.CharacterCountpred]);
+        }
+
     }
 
     public void prev()
@@ -42,6 +57,20 @@ public class CharacterManager : MonoBehaviour
             selectedOption = characterDB.CharacterCount -1;
         }
         UpdateCharacter(selectedOption);
+
+       
+        if (Characterpredb.CharacterCountpred == 0)
+        {
+            Characterpredb.CharacterCountpred = Characterpredb.CharacterPrefabsList.Count - 1;
+            Destroy(spawnedCharacter);
+            spawnedCharacter = Instantiate(Characterpredb.CharacterPrefabsList[Characterpredb.CharacterCountpred]);
+        }
+        else
+        {
+            Characterpredb.CharacterCountpred -= 1;
+            Destroy(spawnedCharacter);
+            spawnedCharacter = Instantiate(Characterpredb.CharacterPrefabsList[Characterpredb.CharacterCountpred]);
+        }
     }
 
     private void UpdateCharacter(int selectedOption)
