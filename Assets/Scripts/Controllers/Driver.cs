@@ -5,46 +5,46 @@ using UnityEngine;
 
 public class Driver : MonoBehaviour
 {
-   [SerializeField] float steerSpeed = 1f;
-   [SerializeField] float moveSpeed = 20f;
-   [SerializeField] float slowSpeed = 10f;
-   [SerializeField] float fastSpeed = 30f;
-    Camera MCamera;
+    [SerializeField] private float _steerSpeed = 1f;
+    [SerializeField] private float _moveSpeed = 20f;
+    [SerializeField] private float _slowSpeed = 10f;
+    [SerializeField] private float _fastSpeed = 30f;
+    private Camera _mCamera;
 
-    
 
-     void Start()
+
+    private void Start()
     {
-        MCamera = Camera.main;
+        _mCamera = Camera.main;
     }
     // Update is called once per frame
-    void Update()
+   private void Update()
     {
-        float steerAmount = Input.GetAxis("Horizontal") * steerSpeed * Time.deltaTime;
-        float moveAmount = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
-        transform.Rotate(0,0,-steerAmount);
-        transform.Translate(0,moveAmount, 0);
+        float steerAmount = Input.GetAxis("Horizontal") * _steerSpeed * Time.deltaTime;
+        float moveAmount = Input.GetAxis("Vertical") * _moveSpeed * Time.deltaTime;
+        transform.Rotate(0, 0, -steerAmount);
+        transform.Translate(0, moveAmount, 0);
 
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Boost")
-        {
-            Debug.Log("Boosting");
-            moveSpeed = fastSpeed;
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        moveSpeed = slowSpeed;
-        Debug.Log("slowed");
     }
 
     private void LateUpdate()
     {
-        MCamera.transform.position = transform.position + new Vector3(0, 0, -10);
+        _mCamera.transform.position = transform.position + new Vector3(0, 0, -10);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Boost")
+        {
+            Debug.Log("Boosting");
+            _moveSpeed = _fastSpeed;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        _moveSpeed = _slowSpeed;
+        Debug.Log("slowed");
     }
 
 

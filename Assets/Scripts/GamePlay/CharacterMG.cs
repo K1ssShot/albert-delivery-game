@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterMG : MonoBehaviour
 {
-    [SerializeField] private CharacterDataBase Characterpredb;
+    [SerializeField] private CharacterDataBase _characterDataBase;
 
     private void Start()
     {
@@ -13,6 +13,6 @@ public class CharacterMG : MonoBehaviour
 
     private void SpawnCharacter()
     {
-        Instantiate(Characterpredb.CharacterPrefabsList[Characterpredb.CharacterCountpred]);
+        Instantiate(_characterDataBase.CharacterPrefabsList[_characterDataBase.CharacterCount]);
     }
 }

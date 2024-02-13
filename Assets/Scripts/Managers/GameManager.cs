@@ -6,55 +6,33 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //for scoring system
-    public TextMeshProUGUI scoreText;
-    public static int numScore = 0;
 
    //for timer system
    
-    float timerC = 0f;
-    [SerializeField] float startTime = 60f;
-    [SerializeField] TextMeshProUGUI countdownText;
-    public GameObject gameOverScreen;
-    void Start()
+    private float _timerCountdown = 0f;
+    [SerializeField]private float _startTime = 60f;
+    [SerializeField]private TextMeshProUGUI _countdownText;
+    
+    
+    private void Start()
     {
-        timerC = startTime;
+        _timerCountdown = _startTime;
         Debug.Log("TimerCountdownStart");
     }
 
-   
-    public void tryAgain()
+    private void Update()
     {
 
-        SceneManager.LoadScene(2);
-        gameOverScreen.SetActive(false);
+        _timerCountdown -= 1 * Time.deltaTime;
+        _countdownText.text = _timerCountdown.ToString("0");
 
-
-    }
-
-    public void mainMenu()
-    {
-        SceneManager.LoadScene(0);
-        gameOverScreen.SetActive(false);
-    }
-
-    void Update()
-    {
-
-        timerC -= 1 * Time.deltaTime;
-        countdownText.text = timerC.ToString("0");
-
-        if (timerC <= 0)
+        if (_timerCountdown <= 0)
         {
             Debug.Log("Gameover");
-            timerC = 0;
-            gameOverScreen.SetActive(true);
+            _timerCountdown = 0;
 
         }
-        scoreText.text = numScore.ToString();
 
 
     }
-
-
 }

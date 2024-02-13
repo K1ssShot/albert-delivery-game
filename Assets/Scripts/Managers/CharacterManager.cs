@@ -7,85 +7,56 @@ using UnityEngine.SceneManagement;
 
 public class CharacterManager : MonoBehaviour
 {
-    
-    public CharacterDataBase characterDB;
-    public TextMeshProUGUI nameText;
-    public SpriteRenderer artworksprite;
-
-    private int selectedOption = 0;
-    [SerializeField] private CharacterDataBase Characterpredb;
-    private GameObject spawnedCharacter;
+    [SerializeField] private CharacterDataBase _characterDataBase;
+    private GameObject _spawnedCharacter;
 
 
-    void Start()
+   private void Start()
     {
-        Characterpredb.CharacterCountpred = 0;
-        spawnedCharacter = Instantiate (Characterpredb.CharacterPrefabsList[Characterpredb.CharacterCountpred]);
-        UpdateCharacter(selectedOption);
+        
+        _spawnedCharacter = Instantiate (_characterDataBase.CharacterPrefabsList[_characterDataBase.CharacterCount]);
     }
   
 
     public void next()
     {
-        selectedOption++;
-        if (selectedOption >=characterDB.CharacterCount)
-        {
-            selectedOption = 0;
-        }
-        UpdateCharacter(selectedOption);
 
-        if (Characterpredb.CharacterCountpred == Characterpredb.CharacterPrefabsList.Count - 1)
+        if (_characterDataBase.CharacterCount == _characterDataBase.CharacterPrefabsList.Count - 1)
         {
-            Characterpredb.CharacterCountpred = 0;
-            Destroy(spawnedCharacter);
-            spawnedCharacter = Instantiate(Characterpredb.CharacterPrefabsList[Characterpredb.CharacterCountpred]);
+            _characterDataBase.CharacterCount = 0;
+            Destroy(_spawnedCharacter);
+            _spawnedCharacter = Instantiate(_characterDataBase.CharacterPrefabsList[_characterDataBase.CharacterCount]);
         }
         else
         {
-            Characterpredb.CharacterCountpred += 1;
-            Destroy(spawnedCharacter);
-            spawnedCharacter = Instantiate(Characterpredb.CharacterPrefabsList[Characterpredb.CharacterCountpred]);
+            _characterDataBase.CharacterCount += 1;
+            Destroy(_spawnedCharacter);
+            _spawnedCharacter = Instantiate(_characterDataBase.CharacterPrefabsList[_characterDataBase.CharacterCount]);
         }
 
     }
 
     public void prev()
     {
-        selectedOption--;
-        if (selectedOption < 0)
-        {
-            selectedOption = characterDB.CharacterCount -1;
-        }
-        UpdateCharacter(selectedOption);
 
        
-        if (Characterpredb.CharacterCountpred == 0)
+        if (_characterDataBase.CharacterCount == 0)
         {
-            Characterpredb.CharacterCountpred = Characterpredb.CharacterPrefabsList.Count - 1;
-            Destroy(spawnedCharacter);
-            spawnedCharacter = Instantiate(Characterpredb.CharacterPrefabsList[Characterpredb.CharacterCountpred]);
+            _characterDataBase.CharacterCount = _characterDataBase.CharacterPrefabsList.Count - 1;
+            Destroy(_spawnedCharacter);
+            _spawnedCharacter = Instantiate(_characterDataBase.CharacterPrefabsList[_characterDataBase.CharacterCount]);
         }
         else
         {
-            Characterpredb.CharacterCountpred -= 1;
-            Destroy(spawnedCharacter);
-            spawnedCharacter = Instantiate(Characterpredb.CharacterPrefabsList[Characterpredb.CharacterCountpred]);
+            _characterDataBase.CharacterCount -= 1;
+            Destroy(_spawnedCharacter);
+            _spawnedCharacter = Instantiate(_characterDataBase.CharacterPrefabsList[_characterDataBase.CharacterCount]);
         }
     }
 
-    private void UpdateCharacter(int selectedOption)
-    {
-        Character character = characterDB.GetCharacter(selectedOption);
-        artworksprite.sprite = character.characterSprite;
-        nameText.text = character.characterName;
-    }
-
-  
 
     public void changeScene(int sceneID)
     {
         SceneManager.LoadScene(sceneID);
     }
-
-
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CustomerRan : MonoBehaviour
 {
-    public BoxCollider2D boundsArea;
+    public BoxCollider2D BoundsArea;
 
 
     private void Start()
@@ -17,7 +17,8 @@ public class CustomerRan : MonoBehaviour
 
     public void Randomizer()
     {
-        Bounds bounds = this.boundsArea.bounds;
+        Bounds bounds = this.BoundsArea.bounds;
+
 
         float x = Random.Range(bounds.min.x, bounds.max.x);
         float y = Random.Range(bounds.min.y, bounds.max.y);
