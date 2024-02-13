@@ -36,7 +36,7 @@ public class Deliver : MonoBehaviour
             //Destroy(other.gameObject, destroyDelay);
             spriteRenderer.color = haspackageColor;
             Debug.Log("Scored 1");
-            Scoring.numScore+=1;
+            GameManager.numScore+=1;
 
 
 
@@ -48,7 +48,7 @@ public class Deliver : MonoBehaviour
             hasPackage = false;
             spriteRenderer.color = nopackageColor;
             Debug.Log("Scored 2 ");
-            Scoring.numScore +=2;
+            GameManager.numScore +=2;
         }
     }
 }

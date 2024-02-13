@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 518419317}
   - component: {fileID: 518419316}
   m_Layer: 5
-  m_Name: <
+  m_Name: Previous
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -571,7 +571,7 @@ SpriteRenderer:
   m_Size: {x: 2.25, y: 2.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &584003895
@@ -967,7 +967,7 @@ GameObject:
   - component: {fileID: 1174119542}
   - component: {fileID: 1174119541}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Previous Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1345,7 +1345,7 @@ GameObject:
   - component: {fileID: 1296293999}
   - component: {fileID: 1296293998}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Enter Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1503,7 +1503,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1571,7 +1571,7 @@ GameObject:
   - component: {fileID: 1667731354}
   - component: {fileID: 1667731353}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Next Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1706,7 +1706,7 @@ GameObject:
   - component: {fileID: 1684141599}
   - component: {fileID: 1684141598}
   m_Layer: 5
-  m_Name: '>'
+  m_Name: Next
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
