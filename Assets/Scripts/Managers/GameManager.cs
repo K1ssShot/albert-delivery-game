@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-   //for timer system
+   //for timer UI system Condition 
    
     private float _timerCountdown = 0f;
     [SerializeField]private float _startTime = 60f;
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
+        // to display the time from the UI 
         _timerCountdown -= 1 * Time.deltaTime;
         _countdownText.text = _timerCountdown.ToString("0");
 

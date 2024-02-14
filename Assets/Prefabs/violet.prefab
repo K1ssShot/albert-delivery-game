@@ -100,10 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3400e85556417f7468252a3e4c70a552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steerSpeed: 250
-  moveSpeed: 15
-  slowSpeed: 8
-  fastSpeed: 30
+  _steerSpeed: 300
+  _moveSpeed: 20
+  _slowSpeed: 10
+  _fastSpeed: 30
 --- !u!50 &7823147642422009058
 Rigidbody2D:
   serializedVersion: 4
@@ -188,9 +188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e10ba603eacca42b010e0b0d628ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  haspackageColor:
+  _haspackageColor:
     serializedVersion: 2
-    rgba: 4278190275
-  nopackageColor:
+    rgba: 4278190335
+  _nopackageColor:
     serializedVersion: 2
-    rgba: 4294439029
+    rgba: 4294931960

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _countdownText;
+   
     public TextMeshProUGUI ScoreText;
     public static int PlayerScore = 0;
     public GameObject GameOverScreen;
@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
 
 
     }
-   
+   // for the Main Menu UI and Game over UI 
     public void TryAgain(string levelName)
     {
 

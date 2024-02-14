@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CustomerRan : MonoBehaviour
 {
+   // this is the script to be change for the editor frendly spawn location in level 1 
     public BoxCollider2D BoundsArea;
-
 
     private void Start()
     {
@@ -14,7 +14,7 @@ public class CustomerRan : MonoBehaviour
     }
 
 
-
+    // for the random spawn area in the level 1 
     public void Randomizer()
     {
         Bounds bounds = this.BoundsArea.bounds;
@@ -29,7 +29,7 @@ public class CustomerRan : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-
+        // on trigger event for the player using tag but tobe uprade for the new editor frendly spawn location in level 1 
         if (other.tag == "Player")
         {
             Randomizer();

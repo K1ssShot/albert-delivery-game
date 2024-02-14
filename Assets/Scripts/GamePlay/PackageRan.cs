@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class PackageRan : MonoBehaviour
 {
+    
+  //old package random controller 
     public BoxCollider2D BoundsArea;
 
-    
-
+   
     private void Start()
     {
-        Randomizer();
+        RandomSpawn();
         Debug.Log("change start package");
     }
 
 
-
-    public void Randomizer()
+    // for the random spawn area in the level 1 
+    public void RandomSpawn()
     {
         Bounds bounds = this.BoundsArea.bounds;
 
@@ -29,10 +30,9 @@ public class PackageRan : MonoBehaviour
    
     public void OnTriggerEnter2D(Collider2D other)
     {
-        
+        // on trigger event for the player using tag but to be uprade for the new editor frendly spawn location in level 1 
         if (other.tag == "Player")
         {
-            Randomizer();
             Debug.Log("nag change pos package");
           
         }

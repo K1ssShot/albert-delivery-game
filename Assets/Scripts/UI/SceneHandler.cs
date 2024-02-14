@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneHandler : MonoBehaviour
 {
+    //for the main mainmenu game scene going to the next scene
     public void PlayButton(string sceneName)
     {
 

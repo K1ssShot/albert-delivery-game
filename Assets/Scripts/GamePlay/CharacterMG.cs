@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterMG : MonoBehaviour
 {
+   
     [SerializeField] private CharacterDataBase _characterDataBase;
 
     private void Start()
@@ -13,6 +14,7 @@ public class CharacterMG : MonoBehaviour
 
     private void SpawnCharacter()
     {
+        // for the character to be spawned in level1 from the character selection
         Instantiate(_characterDataBase.CharacterPrefabsList[_characterDataBase.CharacterCount]);
     }
 }

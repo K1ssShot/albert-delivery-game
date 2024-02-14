@@ -6,7 +6,7 @@ using TMPro;
 
 public class Deliver : MonoBehaviour
 {
-  
+  // for the sprite color controller
     [SerializeField] private Color32 _haspackageColor = new Color32(1, 1, 1, 1);
     [SerializeField] private Color32 _nopackageColor = new Color32(234, 14, 14, 255);
     private bool _hasPackage;
@@ -16,18 +16,21 @@ public class Deliver : MonoBehaviour
 
    public void Start()
     {
+        //initiating or getting the component sprite renderer in the player components 
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
 
    public void OnCollisionEnter2D(Collision2D other)
     {
+       // slowing the player 
         Debug.Log("agay");
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-
+        // this is a package customer condition if the package is delivered or not
+        
         if (other.tag == "Package" && !_hasPackage)
         {
             Debug.Log("package picked");

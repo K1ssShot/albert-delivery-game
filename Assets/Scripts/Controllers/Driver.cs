@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Driver : MonoBehaviour
 {
-    [SerializeField] private float _steerSpeed = 1f;
+    [SerializeField] private float _steerSpeed = 300f;
     [SerializeField] private float _moveSpeed = 20f;
     [SerializeField] private float _slowSpeed = 10f;
     [SerializeField] private float _fastSpeed = 30f;
@@ -29,11 +29,13 @@ public class Driver : MonoBehaviour
 
     private void LateUpdate()
     {
+        //for the player main camera possition
         _mCamera.transform.position = transform.position + new Vector3(0, 0, -10);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+       //Bossting the player character
         if (other.tag == "Boost")
         {
             Debug.Log("Boosting");
@@ -43,6 +45,7 @@ public class Driver : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        //slowing  the player character
         _moveSpeed = _slowSpeed;
         Debug.Log("slowed");
     }

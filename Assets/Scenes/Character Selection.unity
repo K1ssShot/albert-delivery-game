@@ -387,7 +387,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 132559785}
         m_TargetAssemblyTypeName: CharacterManager, Assembly-CSharp
-        m_MethodName: prev
+        m_MethodName: previous
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
