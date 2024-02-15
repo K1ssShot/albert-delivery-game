@@ -35,12 +35,10 @@ public class Driver : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-       //Bossting the player character
-        if (other.tag == "Boost")
-        {
-            Debug.Log("Boosting");
-            _moveSpeed = _fastSpeed;
-        }
+        //Boost speed
+        _moveSpeed = _fastSpeed;
+        Debug.Log(" moving fast");
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)

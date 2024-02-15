@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Package : MonoBehaviour
 {
     // for the package collider using the new editior friendly spawnpoint
+    
     private PackageManager _packageManager;
+    public static Action OnPackageRetrievedEvent;
+
 
     private void Start()
     {
@@ -18,12 +22,14 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent(out Driver driver))
+        if ( other.TryGetComponent(out Driver driver))
         {
             // Notify the package manager that the package has been collected
             _packageManager.OnPackageCollected();
-            // Optionally, you can destroy the package prefab once it's collected
             Destroy(gameObject);
+            UIManager.PlayerScore += 1;
+            //TODO: call customerspawn
+            OnPackageRetrievedEvent?.Invoke();
         }
     }
 }
