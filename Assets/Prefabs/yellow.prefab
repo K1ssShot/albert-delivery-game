@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _steerSpeed: 300
-  _moveSpeed: 20
   _slowSpeed: 10
-  _fastSpeed: 30
+  _moveSpeed: 20
+  _spriteRenderer: {fileID: 0}
 --- !u!50 &8542121818675009238
 Rigidbody2D:
   serializedVersion: 4

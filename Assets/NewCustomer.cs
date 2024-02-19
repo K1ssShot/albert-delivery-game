@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class NewCustomer : MonoBehaviour
 {
-    
-    private CustomerManager _customerManager;
-    private PackageManager  _packageManager;
+    // for the sprite color controller
+    [SerializeField] private Color32 _noPackageColor = new Color32(255, 255, 255, 255);
+    private CustomerSpawner _customerManager;
     public static Action OnCustomerRetriveEvent;
 
     private void Start()
     {
-        _customerManager = FindAnyObjectByType<CustomerManager>();
+        _customerManager = FindAnyObjectByType<CustomerSpawner>();
         if (_customerManager == null)
         {
             Debug.LogError("Package Manager not found in the scene!");
@@ -22,14 +22,19 @@ public class NewCustomer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //TODO: trygetcomponent driver
-        _customerManager.OnCustomer();
-        OnCustomerRetriveEvent?.Invoke();
-        Destroy(gameObject);
-        //TODO: spawnnextpackage
-        _packageManager.SpawnNextPackage();
+        
+        if (collision.TryGetComponent(out Driver driver))
+        {
+            //color will change and new package will spawn;
+            driver._spriteRenderer.color = _noPackageColor;
+            Debug.Log("Color Back to normal");
+            UIManager.PlayerScore += 2;
+            OnCustomerRetriveEvent?.Invoke();
+            Destroy(gameObject);
+            
 
 
+        }
 
     }
 }

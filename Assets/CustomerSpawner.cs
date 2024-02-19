@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CustomerManager : MonoBehaviour
+public class CustomerSpawner : MonoBehaviour
 {
     [SerializeField] private List<Transform> _customerPositionList;
     [SerializeField] private GameObject _customerPrefab;
-    private int _currentSpawnIndex = 0;
-    private bool _customerPackage = false;
-
+  
 
     private void OnEnable()
     {
@@ -21,21 +19,24 @@ public class CustomerManager : MonoBehaviour
     }
 
     public void CustomerSpawnPosition()
-    {
-        if (!_customerPackage &&_currentSpawnIndex < _customerPositionList.Count)
-        {
-            var customer = _customerPositionList[_currentSpawnIndex];
-            Instantiate(_customerPrefab, customer.position, Quaternion.identity, customer);
-            _customerPackage = true;
+    {   
+        //random event 
+        int randomIndex = Random.Range(0, _customerPositionList.Count);
+        Transform CustomerSpawner = _customerPositionList[randomIndex];
+            var packageGameObject = Instantiate(_customerPrefab, CustomerSpawner.position, Quaternion.identity, CustomerSpawner);
+            Debug.Log("Package picked and New Customer spawned");
+       
 
-        }
+
+        
     }
     public void OnCustomer()
     {
-        _currentSpawnIndex++;
+       
         CustomerSpawnPosition();
-        _customerPackage = false;
         Debug.Log(" Package delivered");
-        UIManager.PlayerScore += 2;
+        
+        
+
     }
 }

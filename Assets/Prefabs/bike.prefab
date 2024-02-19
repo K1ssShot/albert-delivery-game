@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3637220029057008194}
   - component: {fileID: 5337399093189198529}
   - component: {fileID: 3175727785491601226}
-  - component: {fileID: 386006760714771386}
   m_Layer: 0
   m_Name: bike
   m_TagString: Player
@@ -101,9 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _steerSpeed: 300
-  _moveSpeed: 20
   _slowSpeed: 10
-  _fastSpeed: 30
+  _moveSpeed: 20
 --- !u!50 &5337399093189198529
 Rigidbody2D:
   serializedVersion: 4
@@ -176,18 +174,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 1.7}
   m_EdgeRadius: 0
---- !u!114 &386006760714771386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653811594969982855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0e10ba603eacca42b010e0b0d628ad4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _haspackageColor:
-    serializedVersion: 2
-    rgba: 4278190335

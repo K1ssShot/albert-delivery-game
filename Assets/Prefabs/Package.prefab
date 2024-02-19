@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7705788606090312778}
   - component: {fileID: 9140057988563364739}
   - component: {fileID: 75596567118300885}
+  - component: {fileID: 550720267414862237}
   m_Layer: 0
   m_Name: Package
   m_TagString: Package
@@ -143,4 +144,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fcb0cf617e66934fb06966ebcf6f169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerPrefab: {fileID: 6224867567495265518, guid: fab2ac53c4fdef64997eb19d9b96aee9, type: 3}
+--- !u!114 &550720267414862237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782257602071128372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e10ba603eacca42b010e0b0d628ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hasPackageColor:
+    serializedVersion: 2
+    rgba: 4279111402
+  _noPackageColor:
+    serializedVersion: 2
+    rgba: 4294967295

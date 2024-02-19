@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     private float _timerCountdown = 0f;
     [SerializeField]private float _startTime = 60f;
     [SerializeField]private TextMeshProUGUI _countdownText;
+    public GameObject GameOverScreen;
+    
     
     
     private void Start()
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour
         _timerCountdown = _startTime;
         Debug.Log("TimerCountdownStart");
     }
+
+
 
     private void Update()
     {
@@ -30,9 +34,23 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Gameover");
             _timerCountdown = 0;
-
+            GameOverScreen.SetActive(true);
         }
 
+    }
 
+    public void TryAgain(string levelName)
+    {
+
+        SceneManager.LoadScene(levelName);
+        GameOverScreen.SetActive(false);
+
+
+    }
+
+    public void MainMenu(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
+        GameOverScreen.SetActive(false);
     }
 }
