@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+ namespace UI { 
 public class SceneHandler : MonoBehaviour
 {
     //for the main mainmenu game scene going to the next scene
@@ -13,4 +13,5 @@ public class SceneHandler : MonoBehaviour
         SceneManager.LoadScene(sceneName);
 
     }
+}
 }

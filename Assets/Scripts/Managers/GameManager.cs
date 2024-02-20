@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-
     private void Update()
     {
         // to display the time from the UI 

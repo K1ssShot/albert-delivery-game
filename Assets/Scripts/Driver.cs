@@ -10,7 +10,7 @@ public class Driver : MonoBehaviour
     [SerializeField] public float _moveSpeed = 20f;
     public SpriteRenderer _spriteRenderer;
     private Camera _mCamera;
-    
+
 
 
 
@@ -20,7 +20,7 @@ public class Driver : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
     // Update is called once per frame
-   private void Update()
+    private void Update()
     {
         float _steerAmount = Input.GetAxis("Horizontal") * _steerSpeed * Time.deltaTime;
         float _moveAmount = Input.GetAxis("Vertical") * _moveSpeed * Time.deltaTime;
@@ -47,3 +47,4 @@ public class Driver : MonoBehaviour
 
 
 }
+

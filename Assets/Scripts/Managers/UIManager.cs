@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,19 +7,33 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-   
-    public TextMeshProUGUI ScoreText;
-    public static int PlayerScore = 0;
 
-    private void Update()
+    public TextMeshProUGUI PlayerScoreText;
+    public TextMeshProUGUI FinalScoreText;
+    public int PlayerScore = 0;
+    
+
+    public void OnEnable()
     {
-        //updates the Player score automatically from UI
-        ScoreText.text = PlayerScore.ToString();
-     
+        CustomerSpawner.OnPackageCollectedEvent += ScorePoints;
+    }
+
+    public void OnDisable()
+    {
+        CustomerSpawner.OnPackageCollectedEvent -= ScorePoints;
+    }
+
+
+
+    private void ScorePoints()
+    {
+        //for the scoreCounter in player 
+        PlayerScore ++;
+        Debug.Log(" package Delivered ScoreUpdated");
+         PlayerScoreText.text = PlayerScore.ToString();
+        FinalScoreText.text = PlayerScore.ToString();
+
 
     }
-   
-
-
 
 }
