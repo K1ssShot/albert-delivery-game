@@ -1,6 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class CustomerSpawner : MonoBehaviour
@@ -9,29 +9,32 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField] private GameObject _customerPrefab;
     public static Action OnPackageCollectedEvent { get; set; }
 
+    
+    private void Awake()
+    {
+        _customerPositionList.Clear();
+        foreach (Transform child in transform)
+        {
+            _customerPositionList.Add(child);
+        }
+    }
 
     public void OnEnable()
     {
-        PackageSpawner.OnactionNewCustomerEvent += CustomerSpawnPosition;
+        PackageSpawner.OnActionNewCustomerEvent += CustomerSpawnPosition;
     }
 
     public void OnDisable()
     {
-        PackageSpawner.OnactionNewCustomerEvent -= CustomerSpawnPosition;
-    }
-
-    private void Start()
-    {
-       // CustomerSpawnPosition();
-
+        PackageSpawner.OnActionNewCustomerEvent -= CustomerSpawnPosition;
     }
 
     public void CustomerSpawnPosition()
     {   
         //random event 
         int randomIndex = UnityEngine.Random.Range(0, _customerPositionList.Count);
-        Transform CustomerSpawner = _customerPositionList[randomIndex];
-            var customerGameObject = Instantiate(_customerPrefab, CustomerSpawner.position, Quaternion.identity, CustomerSpawner);
+        Transform customerSpawner = _customerPositionList[randomIndex];
+            var customerGameObject = Instantiate(_customerPrefab, customerSpawner.position, Quaternion.identity, customerSpawner);
 
         Debug.Log("Package picked and New Customer spawned");
 
@@ -40,7 +43,8 @@ public class CustomerSpawner : MonoBehaviour
 
         
     }
-    public void OnDilevered()
+    [Button]
+    public void OnDelivered()
     {
         OnPackageCollectedEvent?.Invoke();
         //todo: needs action lister for scoring 

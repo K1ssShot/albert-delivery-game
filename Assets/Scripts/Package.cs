@@ -1,12 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
     public class Package : MonoBehaviour
     {
         // for the package collider using the new editior friendly spawnpoint
-        [SerializeField]
-        private PackageSpawner _packageManager;
+       
+        [ReadOnly]
+        public PackageSpawner _packageManager;
         //todo: remove action
         // public static Action OnPackageRetrievedEvent;
 

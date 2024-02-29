@@ -7,11 +7,19 @@ using UnityEngine;
     public class PackageSpawner : MonoBehaviour
     {
         // the new package manager and spawnpoint locator 
-        [SerializeField] private List<Transform> _packagePositionList;
+        [SerializeField] private List<Transform> _packagePositionList; 
         [SerializeField] private GameObject _packagePrefab;
-        public static Action OnactionNewCustomerEvent;
+        public static Action OnActionNewCustomerEvent { get; set; }
         // [SerializeField] private CustomerSpawner _customerSpawner;
 
+        private void Awake()
+        {
+            _packagePositionList.Clear();
+            foreach (Transform child in transform)
+            {
+                _packagePositionList.Add(child);
+            }
+        }
 
         public void OnEnable()
         {
@@ -30,14 +38,14 @@ using UnityEngine;
 
         }
 
-        public void SpawnNextPackage()
+        private void SpawnNextPackage()
         {
             // to get the spawn transform location of the game object
 
             Debug.Log("Delivered and spawn next Package");
             int randomIndex = UnityEngine.Random.Range(0, _packagePositionList.Count);
-            Transform PackageSpawner = _packagePositionList[randomIndex];
-            var packageGameObject = Instantiate(_packagePrefab, PackageSpawner.position, Quaternion.identity, PackageSpawner);
+            Transform packageSpawner = _packagePositionList[randomIndex];
+            var packageGameObject = Instantiate(_packagePrefab, packageSpawner.position, Quaternion.identity, packageSpawner);
 
             Package package = packageGameObject.GetComponent<Package>();
             package.Inject(this);
@@ -54,7 +62,7 @@ using UnityEngine;
             // todo: TRIGGER static event
             //TODO: call customerspawn
             Debug.Log("this is my new event in PackageSpawner");
-            OnactionNewCustomerEvent?.Invoke();
+            OnActionNewCustomerEvent?.Invoke();
 
         }
     }

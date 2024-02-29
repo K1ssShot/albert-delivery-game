@@ -33,7 +33,7 @@ public class NewCustomer : MonoBehaviour
         if (collision.TryGetComponent(out Driver driver))
         {
             //color will change and new package will spawn;
-            _customerManager.OnDilevered();
+            _customerManager.OnDelivered();
             driver._spriteRenderer.color = _noPackageColor;
             Debug.Log("Color Back to normal");
             //UIManager.PlayerScore += 2;

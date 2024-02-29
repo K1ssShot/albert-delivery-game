@@ -37,7 +37,8 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
+    
+    
     public void TryAgain(string levelName)
     {
 

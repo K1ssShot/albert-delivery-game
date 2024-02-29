@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b7a37fdd4489744fb0397ec3b6c6f92, type: 3}
+  m_Name: CharacterListData
+  m_EditorClassIdentifier: 
+  CharacterList:
+  - PlayerID: 0
+    CharacterName: mr yellow
+    CharacterPrefab: {fileID: 3756086099966435647, guid: 82f73c76bcb0ef149b12324fdf7652fe, type: 3}
+  - PlayerID: 1
+    CharacterName: mr blue
+    CharacterPrefab: {fileID: 3319165882472626899, guid: 21dd2ec27d033654daca1c48d6cb7f8d, type: 3}
+  - PlayerID: 2
+    CharacterName: mr violet
+    CharacterPrefab: {fileID: 7560863027199205753, guid: 2f323754321bafd4abe1822563046340, type: 3}
+  - PlayerID: 3
+    CharacterName: mr bike
+    CharacterPrefab: {fileID: 1653811594969982855, guid: 7275eb2d812f22c498367cb032020162, type: 3}
+  CurrentPlayerID: 0

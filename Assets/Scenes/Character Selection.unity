@@ -132,9 +132,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 132559783}
-  - component: {fileID: 132559785}
+  - component: {fileID: 132559784}
   m_Layer: 0
-  m_Name: Character Manager
+  m_Name: ' ManagerrManager'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +156,7 @@ Transform:
   - {fileID: 934537493}
   m_Father: {fileID: 1411328942}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &132559785
+--- !u!114 &132559784
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,10 +165,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 132559782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 968dd2339b5cc624394e5beab6ded8b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f7a9e8271ec4a74f84224eab247ae5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterDataBase: {fileID: 11400000, guid: da4612b348e1199428d12cbe68a68c40, type: 2}
+  _characterCollection: {fileID: 11400000, guid: 671633a37b5a0c843b549125ec58c57e, type: 2}
+  PlayerIDSelection: 0
 --- !u!1 &506352193
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,16 +253,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 132559785}
-        m_TargetAssemblyTypeName: CharacterManager, Assembly-CSharp
-        m_MethodName: changeScene
-        m_Mode: 3
+      - m_Target: {fileID: 132559784}
+        m_TargetAssemblyTypeName: CharacterSelected, Assembly-CSharp
+        m_MethodName: Starting
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Game1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &506352196
@@ -385,9 +386,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 132559785}
-        m_TargetAssemblyTypeName: CharacterManager, Assembly-CSharp
-        m_MethodName: previous
+      - m_Target: {fileID: 132559784}
+        m_TargetAssemblyTypeName: CharacterSelected, Assembly-CSharp
+        m_MethodName: PreviousButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1688,9 +1689,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 132559785}
-        m_TargetAssemblyTypeName: CharacterManager, Assembly-CSharp
-        m_MethodName: next
+      - m_Target: {fileID: 132559784}
+        m_TargetAssemblyTypeName: CharacterSelected, Assembly-CSharp
+        m_MethodName: NextButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

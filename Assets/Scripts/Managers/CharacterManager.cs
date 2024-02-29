@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 
-public class CharacterManager : MonoBehaviour
+public partial class CharacterManager : MonoBehaviour
 {
     // for the character selection controller 
     [SerializeField] private CharacterDataBase _characterDataBase;
